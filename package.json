@@ -1,5 +1,5 @@
 {
-  "name": "@n-kit/repo-template",
+  "name": "debug-react",
   "version": "0.0.2",
   "description": "a template repo to build NPM package with normalized tools.",
   "keywords": [
@@ -19,19 +19,15 @@
     "src"
   ],
   "scripts": {
-    "build": "tsdx build --name index",
+    "build": "react-scripts build",
     "changeset": "changeset",
-    "doc:build": "docz build",
-    "doc:dev": "docz dev",
-    "doc:serve": "docz build && docz serve",
+    "eject": "react-scripts eject",
     "postinstall": "husky install",
     "lint": "eslint src/**/*",
     "prepublishOnly": "pinst --disable",
     "postpublish": "pinst --enable",
-    "release": "npm run build && changeset publish",
-    "start": "tsdx watch --noClean --name index",
-    "test": "tsdx test",
-    "test:coverage": "tsdx test --coverage"
+    "start": "react-scripts start",
+    "test": "react-scripts test"
   },
   "config": {
     "commitizen": {
@@ -43,12 +39,12 @@
     "@changesets/cli": "^2.16.0",
     "@commitlint/cli": "^13.1.0",
     "@commitlint/config-conventional": "^13.1.0",
-    "@types/react": "^17.0.15",
+    "@types/react": "^17.0.0",
+    "@types/react-dom": "^17.0.0",
     "@typescript-eslint/eslint-plugin": "^4.29.0",
     "@typescript-eslint/parser": "^4.29.0",
     "commitizen": "^4.2.4",
     "cz-conventional-changelog": "^3.3.0",
-    "docz": "^2.3.1",
     "eslint": "^7.32.0",
     "eslint-config-standard": "^16.0.3",
     "eslint-plugin-import": "^2.23.4",
@@ -62,10 +58,28 @@
     "pinst": "^2.0.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
-    "tsdx": "^0.14.1"
+    "react-scripts": "4.0.1",
+    "typescript": "^4.3.5"
   },
   "peerDependencies": {
     "react": "^16.8.0 || ^17.0.0"
   },
-  "packageManager": "yarn@3.0.0"
+  "packageManager": "yarn@3.0.0",
+  "dependencies": {
+    "@ant-design/icons": "^4.6.2",
+    "antd": "^4.16.10",
+    "react-router-dom": "^5.2.0"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
 }

@@ -30,6 +30,8 @@ module.exports = {
         variables: false,
         typedefs: false
       }
-    ]
+    ],
+    'react/react-in-jsx-scope': 0,
+    'no-unused-vars': 0
   }
 }

@@ -1,5 +1,9 @@
 import React from 'react'
+import ReactDOM from 'react-dom'
+import './index.css'
+import App from './App'
 
-export const Thing = () => {
-  return <div>the snozzberries taste like snozzberries</div>
-}
+ReactDOM.render(
+  <App />,
+  document.getElementById('root')
+)

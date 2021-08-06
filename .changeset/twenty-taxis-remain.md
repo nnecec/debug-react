@@ -1,5 +1,5 @@
 ---
-"@n-kit/repo-template": minor
+"debug-react": minor
 ---
 
 add docz
