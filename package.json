@@ -1,0 +1,71 @@
+{
+  "name": "@n-kit/repo-template",
+  "version": "0.0.2",
+  "description": "a template repo to build NPM package with normalized tools.",
+  "keywords": [
+    "react",
+    "typescript",
+    "template"
+  ],
+  "author": "nnecec<nnecec@outlook.coom>",
+  "main": "dist/index.js",
+  "module": "dist/index.esm.js",
+  "typings": "dist/index.d.ts",
+  "files": [
+    "README.md",
+    "CHANGELOG.md",
+    "LICENSE",
+    "dist",
+    "src"
+  ],
+  "scripts": {
+    "build": "tsdx build --name index",
+    "changeset": "changeset",
+    "doc:build": "docz build",
+    "doc:dev": "docz dev",
+    "doc:serve": "docz build && docz serve",
+    "postinstall": "husky install",
+    "lint": "eslint src/**/*",
+    "prepublishOnly": "pinst --disable",
+    "postpublish": "pinst --enable",
+    "release": "npm run build && changeset publish",
+    "start": "tsdx watch --noClean --name index",
+    "test": "tsdx test",
+    "test:coverage": "tsdx test --coverage"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  },
+  "devDependencies": {
+    "@changesets/changelog-github": "^0.4.0",
+    "@changesets/cli": "^2.16.0",
+    "@commitlint/cli": "^13.1.0",
+    "@commitlint/config-conventional": "^13.1.0",
+    "@types/react": "^17.0.15",
+    "@typescript-eslint/eslint-plugin": "^4.29.0",
+    "@typescript-eslint/parser": "^4.29.0",
+    "commitizen": "^4.2.4",
+    "cz-conventional-changelog": "^3.3.0",
+    "docz": "^2.3.1",
+    "eslint": "^7.32.0",
+    "eslint-config-standard": "^16.0.3",
+    "eslint-plugin-import": "^2.23.4",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-promise": "^5.1.0",
+    "eslint-plugin-react": "^7.24.0",
+    "eslint-plugin-react-hooks": "^4.2.0",
+    "husky": "^7.0.0",
+    "is-ci": "^3.0.0",
+    "lint-staged": "^11.1.1",
+    "pinst": "^2.0.0",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "tsdx": "^0.14.1"
+  },
+  "peerDependencies": {
+    "react": "^16.8.0 || ^17.0.0"
+  },
+  "packageManager": "yarn@3.0.0"
+}
