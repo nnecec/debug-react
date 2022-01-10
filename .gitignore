@@ -2,31 +2,22 @@
 
 # dependencies
 /node_modules
-/npm-debug.log*
-/yarn-error.log
+/.pnp
+.pnp.js
 
-/package-lock.json
-**/yarn.lock
-package-lock.json
-yarn.lock
-!/yarn.lock
-
-.yarn/*
-!.yarn/patches
-!.yarn/releases
-!.yarn/plugins
-!.yarn/sdks
-!.yarn/versions
-.pnp.*
+# testing
+/coverage
 
 # production
-/dist
-/docs-dist
-.docz
+/build
 
 # misc
 .DS_Store
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
 
-# ide
-/.vscode
-/.idea
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*

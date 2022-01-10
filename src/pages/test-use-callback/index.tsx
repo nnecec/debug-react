@@ -1,7 +1,8 @@
-import React, { useState, useMemo, useCallback, memo } from 'react'
-import { Button } from 'antd'
+import React, { useState, useMemo, useCallback } from 'react'
+import { Button, Input, InputNumber } from 'antd'
 
 export const TestUseCallback = () => {
+  const [amount, setAmount] = useState(100)
   const [, forceUpdate] = useState([])
   const handleClick1 = () => {
     forceUpdate([])
@@ -16,21 +17,25 @@ export const TestUseCallback = () => {
 
   return (
     <div>
-      <List title="without useCallback" onClick={handleClick1}></List>
-      <List title="with useCallback" onClick={handleClick2}></List>
+      <label>
+        按钮数量:
+        <InputNumber max={1000} min={0} value={amount} onChange={setAmount} />
+      </label>
+      <List amount={amount} title="without useCallback" onClick={handleClick1}></List>
+      <List amount={amount} title="with useCallback" onClick={handleClick2}></List>
     </div>
   )
 }
 
 const List = (props: any) => {
-  const { title, onClick } = props
+  const { title, onClick, amount } = props
   const list = useMemo(() => {
     const result: any[] = []
-    for (let i = 0; i < 500; i++) {
+    for (let i = 0; i < amount; i++) {
       result.push(<Button key={i} onClick={onClick}>click</Button>)
     }
     return result
-  }, [onClick])
+  }, [amount, onClick])
 
   return (
     <div>

@@ -1,35 +1,34 @@
-import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom'
+import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom'
 import { Layout, Menu } from 'antd'
 
-import { TestUseCallback } from './pages/test-use-callback'
+import { routes } from './pages'
 
-const { Header, Content, Footer, Sider } = Layout
-
-function App () {
-  const handleMenuClick = (params) => {
-    console.log(params)
-  }
-
+function App() {
   return (
     <Router>
       <Layout style={{ height: '100%' }}>
-        <Sider>
-          <Menu theme="dark" mode="inline" onClick={handleMenuClick}>
+        <Layout.Sider>
+          <Menu theme="dark" mode="inline">
             <Menu.Item key="home">
               <Link to="/">Home</Link>
             </Menu.Item>
-            <Menu.Item key="test-use-callback">
-              <Link to="/test-use-callback">TestUseCallback</Link>
-            </Menu.Item>
+            {
+              routes.map(route => <Menu.Item key={route.path}>
+                <Link to={route.path}>{route.component.name}</Link>
+              </Menu.Item>)
+            }
           </Menu>
-        </Sider>
-        <Layout>
-          <Switch>
-            <Route path="/test-use-callback">
-              <TestUseCallback />
-            </Route>
-          </Switch>
-        </Layout>
+        </Layout.Sider>
+        <Layout.Content style={{ padding: 16 }}>
+          <Routes>
+            {
+              routes.map(route => {
+                const { component: Component, path } = route
+                return <Route key={path} path={path} element={<Component />} />
+              })
+            }
+          </Routes>
+        </Layout.Content>
       </Layout>
     </Router>
   )
