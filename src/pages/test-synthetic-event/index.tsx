@@ -1,5 +1,3 @@
-import { Button } from "antd";
-
 export const TestSyntheticEvent = () => {
   function handleClick(event: any) {
     console.log(event);
@@ -8,7 +6,7 @@ export const TestSyntheticEvent = () => {
   return (
     <div onClick={handleClick}>
       <p onClick={handleClick}>
-        <Button onClick={handleClick}>button</Button>
+        <button onClick={handleClick}>button</button>
       </p>
     </div>
   );

@@ -1,7 +1,5 @@
 import React, { useLayoutEffect, useState, useEffect } from "react";
 
-import { Button } from "antd";
-
 export const TestUseEffect = () => {
   const [count, setCount] = useState(0);
   const [num, setNum] = useState(0);
@@ -33,10 +31,10 @@ export const TestUseEffect = () => {
   return (
     <div>
       <p>中间不会闪烁0</p>
-      <Button onClick={() => setCount(0)}>useLayoutEffect: {count}</Button>
+      <button onClick={() => setCount(0)}>useLayoutEffect: {count}</button>
 
       <p>中间会闪烁0，因为 useEffect 是在 commitLayout 之后执行的</p>
-      <Button onClick={() => setNum(0)}>useEffect: {num}</Button>
+      <button onClick={() => setNum(0)}>useEffect: {num}</button>
     </div>
   );
 };
